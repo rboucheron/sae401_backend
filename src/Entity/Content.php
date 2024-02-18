@@ -19,8 +19,9 @@ class Content
     #[ORM\Column(type: Types::DECIMAL, precision: 5, scale: 0)]
     #[Groups(["getAllBoxs"])]
     private ?string $quantity = null;
-
+    
     #[ORM\ManyToOne(inversedBy: 'aliments')]
+    #[ORM\JoinColumn(onDelete:"CASCADE")]
     #[ORM\JoinColumn(nullable: false)]
     private ?Box $box = null;
 
