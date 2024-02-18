@@ -2,7 +2,7 @@
 
 ## Installation de PHP
 
-Avant de commencer, assurez-vous que PHP est installé sur votre système en exécutant la commande suivante :
+Avant de commencer, assurez-vous que PHP est installé sur votre ordinateur en exécutant la commande suivante :
 
 ```bash
 php -v
