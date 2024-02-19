@@ -26,6 +26,7 @@ class Content
     private ?Box $box = null;
 
     #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+    #[ORM\JoinColumn(onDelete:"CASCADE")]
     #[ORM\JoinColumn(nullable: false)]
     #[Groups(["getAllBoxs"])]
     private ?Aliments $aliments = null;
