@@ -3,15 +3,16 @@
 namespace App\Controller;
 
 use App\Entity\Aliments;
-use App\Entity\Box;
+
 use App\Repository\AlimentsRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\HttpFoundation\Request;
-use Doctrine\ORM\EntityManagerInterface; 
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Serializer\Normalizer\AbstractNormalizer as NormalizerAbstractNormalizer;
 
 class AlimentsController extends AbstractController
 {
@@ -54,7 +55,6 @@ class AlimentsController extends AbstractController
         $em->remove($Aliments);
         $em->flush();
         return new JsonResponse(null, Response::HTTP_NO_CONTENT);
-  
     }
 
 
@@ -67,5 +67,22 @@ class AlimentsController extends AbstractController
         $jsonBook = $serializer->serialize($aliment, 'json', ['groups' => 'getAliments']);
         return new JsonResponse($jsonBook, Response::HTTP_CREATED, [], true);
     }
+
+
+    #[Route('/api/aliment/{id}', name: "updatealiments", methods: ['PUT'])]
+    public function updatealiments(Request $request, SerializerInterface $serializer, Aliments $currentAliments, EntityManagerInterface $em): JsonResponse
+    {
+        $updatedaliments = $serializer->deserialize(
+            $request->getContent(),
+            Aliments::class,
+            'json',
+            [NormalizerAbstractNormalizer::OBJECT_TO_POPULATE => $currentAliments]
+        );
+        $content = $request->toArray();
+        $em->persist($updatedaliments);
+        $em->flush();
+        return new JsonResponse(null, JsonResponse::HTTP_NO_CONTENT);
+    }
+
     
 }
