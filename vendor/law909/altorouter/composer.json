@@ -1,0 +1,23 @@
+{
+   "name": "law909/altorouter",
+   "description": "A lightning fast router for PHP",
+   "keywords": ["router", "routing", "lightweight"],
+   "homepage": "https://github.com/niahoo/AltoRouter",
+   "authors": [
+      {
+         "name": "Danny van Kooten",
+         "email": "dannyvankooten@gmail.com",
+         "homepage": "http://dannyvankooten.com/"
+      },
+      {
+         "name": "law909",
+         "email": "law909@gmail.com"
+      }
+   ],
+   "require": {
+      "php": ">=7.0"
+   },
+   "autoload": {
+      "files": ["AltoRouter.php"]
+   }
+}

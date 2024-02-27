@@ -1,7 +1,11 @@
 # Guide d'Installation
 
 ## Installation de PHP
+ php -S localhost:4000
 
+
+
+ 
 Avant de commencer, assurez-vous que PHP est installé sur votre ordinateur en exécutant la commande suivante :
 
 ```bash

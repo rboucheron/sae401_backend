@@ -1,0 +1,56 @@
+{
+    "packages": [
+        {
+            "name": "law909/altorouter",
+            "version": "1.0.7",
+            "version_normalized": "1.0.7.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/law909/AltoRouter.git",
+                "reference": "f2cfcd7e25ae713dcaa14fd5f6858f442df5fbdf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/law909/AltoRouter/zipball/f2cfcd7e25ae713dcaa14fd5f6858f442df5fbdf",
+                "reference": "f2cfcd7e25ae713dcaa14fd5f6858f442df5fbdf",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0"
+            },
+            "time": "2023-01-09T01:41:03+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "files": [
+                    "AltoRouter.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "Danny van Kooten",
+                    "email": "dannyvankooten@gmail.com",
+                    "homepage": "http://dannyvankooten.com/"
+                },
+                {
+                    "name": "law909",
+                    "email": "law909@gmail.com"
+                }
+            ],
+            "description": "A lightning fast router for PHP",
+            "homepage": "https://github.com/niahoo/AltoRouter",
+            "keywords": [
+                "lightweight",
+                "router",
+                "routing"
+            ],
+            "support": {
+                "source": "https://github.com/law909/AltoRouter/tree/1.0.7"
+            },
+            "install-path": "../law909/altorouter"
+        }
+    ],
+    "dev": true,
+    "dev-package-names": []
+}
