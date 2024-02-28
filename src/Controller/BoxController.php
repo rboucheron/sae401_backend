@@ -7,4 +7,9 @@ class BoxController
         $box = new box;
         return json_encode($box->findall());
     }
+    public function getBox($id)
+    {
+        $box = new box;
+        return json_encode($box->find($id));
+    }
 }

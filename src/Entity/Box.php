@@ -1,5 +1,5 @@
 <?php
-include('./src/database/Model.php'); 
+include('./src/database/Model.php');
 class box extends Model
 {
     private $id;
@@ -9,7 +9,7 @@ class box extends Model
     private $pieces;
     public function __construct()
     {
-        $this->table = __CLASS__; 
+        $this->table = __CLASS__;
         parent::__construct();
     }
 

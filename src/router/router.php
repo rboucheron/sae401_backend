@@ -3,7 +3,8 @@ require './vendor/autoload.php';
 
 $uri = $_SERVER['REQUEST_URI'];
 $router = new AltoRouter();
-$router->map('GET', '/api/boxs', 'api');
+$router->map('GET', '/api/boxs', 'get_allbox');
+$router->map('GET', '/api/box', 'get_box');
 $match = $router->match();
 
 if (is_array($match)) {

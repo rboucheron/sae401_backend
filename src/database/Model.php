@@ -27,8 +27,8 @@ class Model extends Database
     }
     public function find($id)
     {
-        $query =  'SELECT * FROM ' . $this->table . ' WHERE id = \'' . $id . '\'';
-        return $this->requete($query);
+        $query = $this->requete('SELECT * FROM ' . $this->table . ' WHERE id = \'' . $id . '\'');
+        return $query->fetchAll(PDO::FETCH_ASSOC);
     }
     public function delete($id)
     {

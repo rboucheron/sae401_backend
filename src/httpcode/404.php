@@ -1,2 +1,2 @@
 <?php 
-echo "erreur"; 
+echo "erreur 404"; 
