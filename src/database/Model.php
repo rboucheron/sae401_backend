@@ -15,10 +15,9 @@ class Model extends Database
     public function insert($data)
     {
         $columns = implode(", ", array_keys($data));
-        $placeholders = implode(", ", array_fill(0, count($data), "?"));
-        $values = array_values($data);
-        return $query = "INSERT INTO {$this->table} ({$columns}) VALUES ({$placeholders})";
-     //   $this->requete($query, $values);
+        $values = "'" . implode("','", array_values($data)) . "'";
+        $query = "INSERT INTO {$this->table} ({$columns}) VALUES ({$values})";
+        $this->requete($query);
     }
     public function findall()
     {
@@ -38,9 +37,8 @@ class Model extends Database
     public function put($id, $data)
     {
         $columns = implode(", ", array_keys($data));
-        $placeholders = implode(", ", array_fill(0, count($data), "?"));
-        $values = array_values($data);
-        $query = "INSERT INTO {$this->table} ({$columns}) VALUES ({$placeholders}) WHERE id = {$id}";
-        $this->requete($query, $values);
+        $values = "'" . implode("','", array_values($data)) . "'";
+        $query = "INSERT INTO {$this->table} ({$columns}) VALUES ({ $values }) WHERE id = {$id}";
+        $this->requete($query);
     }
 }

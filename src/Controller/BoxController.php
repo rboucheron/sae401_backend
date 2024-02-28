@@ -15,12 +15,16 @@ class BoxController
     public function deleteBox($id)
     {
         $box = new box;
-        $box->delete($id); 
+        $box->delete($id);
     }
     public function postbox($data)
     {
         $box = new box;
-        return $box->insert($data); 
-
+        return $box->insert($data);
+    }
+    public function updatebox($id, $data)
+    {
+        $box = new box;
+        $box->put($id, $data);
     }
 }
