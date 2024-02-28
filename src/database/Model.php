@@ -32,7 +32,7 @@ class Model extends Database
     }
     public function delete($id)
     {
-        $query =  'DELETE * FROM ' . $this->table . ' WHERE id = \'' . $id . '\'';
+        $query =  'DELETE FROM ' . $this->table . ' WHERE id = \'' . $id . '\'';
         $this->requete($query);
     }
     public function put($id, $data)

@@ -12,4 +12,14 @@ class BoxController
         $box = new box;
         return json_encode($box->find($id));
     }
+    public function deleteBox($id)
+    {
+        $box = new box;
+        $box->delete($id); 
+    }
+    public function postbox($data)
+    {
+        $box = new box;
+        $box->insert($data); 
+    }
 }
