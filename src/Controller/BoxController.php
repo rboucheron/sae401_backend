@@ -20,6 +20,7 @@ class BoxController
     public function postbox($data)
     {
         $box = new box;
-        $box->insert($data); 
+        return $box->insert($data); 
+
     }
 }

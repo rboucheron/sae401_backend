@@ -17,8 +17,8 @@ class Model extends Database
         $columns = implode(", ", array_keys($data));
         $placeholders = implode(", ", array_fill(0, count($data), "?"));
         $values = array_values($data);
-        $query = "INSERT INTO {$this->table} ({$columns}) VALUES ({$placeholders})";
-        $this->requete($query, $values);
+        return $query = "INSERT INTO {$this->table} ({$columns}) VALUES ({$placeholders})";
+     //   $this->requete($query, $values);
     }
     public function findall()
     {

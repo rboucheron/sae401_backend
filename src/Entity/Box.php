@@ -55,4 +55,14 @@ class box extends Model
         $this->pieces = $pieces;
         return $this;
     }
+    public function post()
+    {
+        $data = [
+            'name' => $this->getName(),
+            'image' => $this->getImage(),
+            'pieces' => $this->getPieces(),
+            'price' => $this->getPrice(),
+        ];
+        $this->insert($data); 
+    }
 }
