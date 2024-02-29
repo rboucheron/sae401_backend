@@ -2,9 +2,9 @@
 include('./src/controller/BoxController.php');
 $box = new BoxController;
 
-$data = file_get_contents('php://input');
-$tabl = json_decode($data, true);
 
-foreach ($tabl as $tabls) {
-   echo $box->postbox($tabls);
+$datas = json_decode(file_get_contents('php://input'), true);
+
+foreach ($datas as $data) {
+   echo $box->postbox($data);
 }

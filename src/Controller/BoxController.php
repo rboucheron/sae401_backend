@@ -25,6 +25,6 @@ class BoxController
     public function updatebox($id, $data)
     {
         $box = new box;
-        $box->put($id, $data);
+        return $box->put($id, $data);
     }
 }

@@ -36,9 +36,12 @@ class Model extends Database
     }
     public function put($id, $data)
     {
-        $columns = implode(", ", array_keys($data));
-        $values = "'" . implode("','", array_values($data)) . "'";
-        $query = "INSERT INTO {$this->table} ({$columns}) VALUES ({ $values }) WHERE id = {$id}";
+        $sets = [];
+        foreach ($data as $key => $value) {
+            $sets[] = "$key = '$value'";
+        }
+        $rows = implode(", ", $sets);
+        $query = "UPDATE {$this->table} SET {$rows} WHERE id = '{$id}'";
         $this->requete($query);
     }
 }
