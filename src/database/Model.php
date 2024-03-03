@@ -24,9 +24,9 @@ class Model extends Database
         $query = $this->requete('SELECT * FROM ' . $this->table);
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }
-    public function find($id)
+    public function find($colmn, $row)
     {
-        $query = $this->requete('SELECT * FROM ' . $this->table . ' WHERE id = \'' . $id . '\'');
+        $query = $this->requete('SELECT * FROM ' . $this->table . ' WHERE ' . $colmn . ' = \'' . $row . '\'');
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }
     public function delete($id)

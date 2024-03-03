@@ -10,7 +10,8 @@ class BoxController
     public function getBox($id)
     {
         $box = new box;
-        return json_encode($box->find($id));
+        $box->setId($id);
+        return json_encode($box->findbox());
     }
     public function deleteBox($id)
     {
