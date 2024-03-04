@@ -3,12 +3,22 @@ require './vendor/autoload.php';
 
 $uri = $_SERVER['REQUEST_URI'];
 $router = new AltoRouter();
+//les boxes
 $router->map('GET', '/api', 'api');
 $router->map('GET', '/api/boxs', 'get_allbox');
 $router->map('GET', '/api/box', 'get_box');
 $router->map('Delete', '/api/box', 'delete_box');
 $router->map('POST', '/api/box', 'post_box');
 $router->map('PUT', '/api/box', 'put_box');
+//les saveurs
+$router->map('GET', '/api', 'api');
+$router->map('GET', '/api/savors', 'get_allsavor');
+$router->map('GET', '/api/savor', 'get_savor');
+$router->map('Delete', '/api/savor', 'delete_savor');
+$router->map('POST', '/api/savor', 'post_savor');
+$router->map('PUT', '/api/savor', 'put_savor');
+
+
 
 
 $match = $router->match();
