@@ -7,7 +7,7 @@ class Model extends Database
     {
         parent::__construct();
     }
-    public function requete(string $sql)
+    private function requete(string $sql)
     {
         $this->db = Database::getInstance();
         return $this->db->query($sql);
