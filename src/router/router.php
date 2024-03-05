@@ -20,7 +20,6 @@ $router->map('PUT', '/api/savor', 'put_savor');
 
 //les aliments
 
-$router->map('GET', '/api', 'api');
 $router->map('GET', '/api/aliments', 'get_allaliment');
 $router->map('GET', '/api/aliment', 'get_aliment');
 $router->map('Delete', '/api/aliment', 'delete_aliment');

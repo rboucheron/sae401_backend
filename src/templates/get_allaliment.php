@@ -1,6 +1,6 @@
 <?php
 include('./src/controller/AlimentController.php'); 
-$box = new AlimentController; 
+$aliment = new AlimentController; 
 $response = $aliment->getAllAliment(); 
 
 if (json_decode($response, true)  == []) {
