@@ -14,5 +14,5 @@ if (is_array($match)) {
     $table = $match['params']['table']; 
     require "./src/templates/{$match['target']}.php";
 } else {
-    require "./src/httpcode/404.php";
+    require "./src/httpcode/400.php";
 }

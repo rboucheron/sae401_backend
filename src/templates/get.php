@@ -21,6 +21,9 @@ switch ($table) {
         $controller = new AlimentController;
         Get($controller);
         break;
+
+    default:
+        include('./src/httpcode/400.php');
 }
 
 function Get($controller)

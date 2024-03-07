@@ -23,6 +23,9 @@ switch ($table) {
         $controller = new AlimentController;
         Put($controller, $datas);
         break;
+        
+    default:
+        include('./src/httpcode/400.php');
 }
 
 function Put($controller, $datas)
@@ -32,5 +35,4 @@ function Put($controller, $datas)
     } else {
         include('./src/httpcode/404.php');
     }
-  
 }
