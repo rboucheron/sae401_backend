@@ -2,28 +2,28 @@
 include('./src/entity/savor.php');
 class SavorController
 {
-    public function getAllSavors()
+    public function getAll()
     {
         $savor = new savor;
         return json_encode($savor->findall());
     }
-    public function getSavor($id)
+    public function get($id)
     {
         $savor = new savor;
         $savor->setId($id);
         return json_encode($savor->findsavor());
     }
-    public function deleteSavor($id)
+    public function delete($id)
     {
         $savor = new savor;
         $savor->delete($id);
     }
-    public function postSavor($data)
+    public function post($data)
     {
         $savor = new savor;
         return $savor->insert($data);
     }
-    public function updateSavor($id, $data)
+    public function update($id, $data)
     {
         $savor = new savor;
         return $savor->put($id, $data);

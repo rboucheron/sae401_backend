@@ -1,33 +1,33 @@
 <?php
 
-if ($table == 'box') {
 
-    include('./src/controller/BoxController.php');
-    $box = new BoxController;
+$datas = json_decode(file_get_contents('php://input'), true);
 
-    $datas = json_decode(file_get_contents('php://input'), true);
+switch ($table) {
+    case 'box':
+
+        include('./src/controller/BoxController.php');
+        $controller = new BoxController;
+        Post($controller, $datas);
+        break;
+
+    case 'savor':
+
+        include('./src/controller/SavorController.php');
+        $controller = new SavorController;
+        Post($controller, $datas);
+        break;
+
+    case 'aliment':
+
+        include('./src/controller/AlimentController.php');
+        $controller = new AlimentController;
+        Post($controller, $datas);
+        break;
+}
+
+function Post($controller, $datas)
+{
+    $controller->post($datas);
     var_dump($datas);
-    
-    echo $box->postbox($datas);
-} elseif ($table == 'savor') {
-
-    include('./src/controller/SavorController.php');
-
-    $savor = new SavorController;
-
-    $datas = json_decode(file_get_contents('php://input'), false);
-    var_dump($datas);
-
-    echo $savor->postSavor($data);
-} elseif ($table == 'aliment') {
-
-    include('./src/controller/AlimentController.php');
-
-    $aliment = new AlimentController;
-
-    $datas = json_decode(file_get_contents('php://input'), true);
-    var_dump($datas);
-
-
-    echo $aliment->postAliment($datas);
 }

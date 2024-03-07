@@ -1,23 +1,26 @@
 <?php
 
-
-if (isset($_GET['id']) && ($_GET['id'] != '')) {
-    if ($table == 'box') {
+switch ($table) {
+    case 'box':
 
         include('./src/controller/BoxController.php');
-        $box = new BoxController;
-        $box->deleteBox($_GET['id']);
+        $controller = new BoxController;
+        $controller->delete($_GET['id']);
+        break;
 
-    } elseif ($table == 'savor') {
+    case 'savor':
 
         include('./src/controller/SavorController.php');
-        $savor = new SavorController;
-        $savor->deleteSavor($_GET['id']);
+        $controller = new SavorController;
+        $controller->delete($_GET['id']);
+        break;
 
-    } elseif ($table == 'aliment') {
+    case 'aliment':
 
         include('./src/controller/AlimentController.php');
-        $box = new AlimentController;
-        $box->deleteAliment($_GET['id']);
-    }
+        $controller = new AlimentController;
+        $controller->delete($_GET['id']);
+        break;
 }
+
+

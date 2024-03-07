@@ -1,44 +1,34 @@
 <?php
 
-if ($table == 'box') {
+switch ($table) {
+    case 'box':
 
-    include('./src/controller/BoxController.php');
-    if (isset($_GET['id']) && ($_GET['id'] != '')) {
-        $box = new BoxController;
-        $response =  $box->getBox($_GET['id']);
-    } else {
-        $item = new BoxController;
-        $response = $item->getAllBoxs();
-    }
-    if (json_decode($response, true)  == []) {
-        include('./src/httpcode/404.php');
-    } else {
-        echo $response;
-    }
-} elseif ($table == 'savor') {
+        include('./src/controller/BoxController.php');
+        $controller = new BoxController;
+        Get($controller);
+        break;
 
-    include('./src/controller/SavorController.php');
-    if (isset($_GET['id']) && ($_GET['id'] != '')) {
-        $savor = new SavorController;
-        $response =  $savor->getSavor($_GET['id']);
-    } else {
-        $savor = new SavorController;
-        $response = $savor->getAllSavors();
-    }
-    if (json_decode($response, true)  == []) {
-        include('./src/httpcode/404.php');
-    } else {
-        echo $response;
-    }
-} elseif ($table == 'aliment') {
+    case 'savor':
 
-    include('./src/controller/AlimentController.php');
+        include('./src/controller/SavorController.php');
+        $controller = new SavorController;
+        Get($controller);
+        break;
+
+    case 'aliment':
+
+        include('./src/controller/AlimentController.php');
+        $controller = new AlimentController;
+        Get($controller);
+        break;
+}
+
+function Get($controller)
+{
     if (isset($_GET['id']) && ($_GET['id'] != '')) {
-        $aliment = new AlimentController;
-        $response =  $aliment->getAliment($_GET['id']);
+        $response =  $controller->get($_GET['id']);
     } else {
-        $aliment = new AlimentController;
-        $response = $aliment->getAllAliment();
+        $response = $controller->getAll();
     }
     if (json_decode($response, true)  == []) {
         include('./src/httpcode/404.php');

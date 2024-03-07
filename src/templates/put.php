@@ -1,32 +1,36 @@
 <?php
-if ($table == 'box') {
 
-    include('./src/controller/BoxController.php');
+$datas = json_decode(file_get_contents('php://input'), true);
 
-    $box = new BoxController;
+switch ($table) {
+    case 'box':
 
-    $datas = json_decode(file_get_contents('php://input'), true);
+        include('./src/controller/BoxController.php');
+        $controller = new BoxController;
+        Put($controller, $datas);
+        break;
 
-    foreach ($datas as $data) {
-        echo $box->updatebox($_GET['box'], $data);
+    case 'savor':
+
+        include('./src/controller/SavorController.php');
+        $controller = new SavorController;
+        Put($controller, $datas);
+        break;
+
+    case 'aliment':
+
+        include('./src/controller/AlimentController.php');
+        $controller = new AlimentController;
+        Put($controller, $datas);
+        break;
+}
+
+function Put($controller, $datas)
+{
+    if (isset($_GET['id']) && ($_GET['id'] != '')) {
+        $controller->update($_GET['id'], $datas);
+    } else {
+        include('./src/httpcode/404.php');
     }
-} elseif ($table == 'savor') {
-
-    include('./src/controller/SavorController.php');
-    $savor = new SavorController;
-    $datas = json_decode(file_get_contents('php://input'), true);
-    foreach ($datas as $data) {
-        echo $savor->updateSavor($_GET['savor'], $data);
-    }
-} elseif ($table == 'aliment') {
-
-    include('./src/controller/AlimentController.php');
-
-    $aliment = new AlimentController;
-
-    $datas = json_decode(file_get_contents('php://input'), true);
-
-    foreach ($datas as $data) {
-        echo $aliment->updateAliment($_GET['aliment'], $data);
-    }
+  
 }
