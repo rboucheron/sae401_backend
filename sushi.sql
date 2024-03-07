@@ -40,7 +40,12 @@ CREATE TABLE `box` (
 --
 
 INSERT INTO `box` (`id`, `name`, `image`, `price`, `pieces`) VALUES
-(107, 'Tasty Blend', 'https://media.gettyimages.com/id/1357509554/fr/photo/take-away-japanese-food-on-a-plastic-tray.jpg?s=612x612&w=gi&k=20&c=fnGY0BKLtntlAipAu1gv_e_8fQKr3utNpC7tHRIpVr8=', 16, 5);
+(108, 'Tasty Blend', 'http://localhost:3000/src/assets/box_img/2.jpg', 12.5, '12'),
+(109, 'Amateur Mix', 'http://localhost:3000/src/assets/box_img/17.jpg', 15.9, '18'),
+(110, 'Saumon Original', 'http://localhost:3000/src/assets/box_img/19.jpg', 12.9, '11'),
+(111, 'Salmon Lovers', 'http://localhost:3000/src/assets/box_img/5.jpg', 19.99, '18'),
+(112, 'Salmon Classic', 'http://localhost:3000/src/assets/box_img/4.jpg', 9.99, '11'),
+(113, 'Sunrise', 'http://localhost:3000/src/assets/box_img/20.jpg', 19.99, '20');
 
 -- --------------------------------------------------------
 
@@ -59,7 +64,9 @@ CREATE TABLE `savor` (
 --
 
 INSERT INTO `savor` (`id`, `name`, `image`) VALUES
-(1, 'riz', 'image de riz');
+(1, 'riz', 'http://localhost:3000/src/assets/savor_img/rice.jpg');
+(2, 'avocat', 'http://localhost:3000/src/assets/savor_img/avocat.jpg');
+(3, 'Saumon', 'http://localhost:3000/src/assets/savor_img/salmon.jpg');
 
 --
 -- Indexes for dumped tables
