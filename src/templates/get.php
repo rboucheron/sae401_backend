@@ -7,7 +7,7 @@ switch ($table) {
         $controller = new BoxController;
         Get($controller);
         break;
-
+        
     case 'savor':
 
         include('./src/controller/SavorController.php');
