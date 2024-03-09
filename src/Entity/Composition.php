@@ -1,5 +1,5 @@
 <?php
-include('./src/database/Model.php');
+
 class Composition extends Model
 {
     private $id;
@@ -43,4 +43,17 @@ class Composition extends Model
     {
         $this->quantity = $quantity;
     }
+    public function findComposition()
+    {
+        return $this->find('id', $this->id);
+    }
+    public function findBox()
+    {
+        return $this->find('id_box', $this->id_box);
+    }
+    public function findAliment()
+    {
+        return $this->find('id_aliment', $this->id_aliment);
+    }
+  
 }

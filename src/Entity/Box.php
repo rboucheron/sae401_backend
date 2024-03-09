@@ -1,5 +1,5 @@
 <?php
-include('./src/database/Model.php');
+
 class box extends Model
 {
     private $id;
@@ -55,6 +55,16 @@ class box extends Model
     }
     public function findbox()
     {
-        return $this->find('id', $this->id);
+        $box = $this->find('id', $this->id);
+        $composition = $this->findcomposition(); 
+        array_push($box, $composition); 
+        return $box; 
     }
+    private function findcomposition()
+    {
+        include('./src/Controller/CompositionController.php');
+        $composition = new CompositionController; 
+        return $composition->getBox($this->id); 
+    }
+
 }

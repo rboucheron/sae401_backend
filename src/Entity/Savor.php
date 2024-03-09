@@ -1,5 +1,5 @@
 <?php
-include('./src/database/Model.php');
+
 class savor extends Model
 {
     private $id;

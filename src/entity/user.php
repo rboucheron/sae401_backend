@@ -1,5 +1,5 @@
 <?php
-include('./src/database/Model.php');
+
 class user extends Model
 {
     private $id;

@@ -7,7 +7,7 @@ switch ($table) {
         $controller = new BoxController;
         Get($controller);
         break;
-        
+
     case 'savor':
 
         include('./src/controller/SavorController.php');
@@ -21,6 +21,7 @@ switch ($table) {
         $controller = new AlimentController;
         Get($controller);
         break;
+
 
     default:
         include('./src/httpcode/400.php');
