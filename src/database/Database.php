@@ -5,9 +5,9 @@ class Database extends PDO
     protected $table;
     protected $db;
     private static $instance;
-    private const DBHOST = 'localhost:8889';
+    private const DBHOST = 'localhost';
     private const DBUSER = 'root';
-    private const DBPASS = 'root';
+    private const DBPASS = '';
     private const DBNAME = 'sushi';
 
     public function __construct()
