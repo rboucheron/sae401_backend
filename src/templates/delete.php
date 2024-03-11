@@ -21,7 +21,14 @@ switch ($table) {
         $controller = new AlimentController;
         $controller->delete($_GET['id']);
         break;
+        
+    case 'drink' :
+        include('./src/controller/DrinkController.php');
+        $controller = new DrinkController;
+        $controller->delete($_GET['id']);
+        break;
 
     default:
         include('./src/httpcode/400.php');
+
 }
