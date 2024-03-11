@@ -56,15 +56,22 @@ class box extends Model
     public function findbox()
     {
         $box = $this->find('id', $this->id);
-        $composition = $this->findcomposition(); 
-        array_push($box, $composition); 
-        return $box; 
+        $composition = $this->findcomposition();
+        $ingredient = $this->findingredient();
+        array_push($box, $composition, $ingredient);
+        return $box;
     }
     private function findcomposition()
     {
         include('./src/Controller/CompositionController.php');
-        $composition = new CompositionController; 
-        return $composition->getBox($this->id); 
+        $composition = new CompositionController;
+        return $composition->getBox($this->id);
     }
 
+    private function findingredient()
+    {
+        include('./src/Controller/IngredientController.php');
+        $ingredient = new IngredientController;
+        return $ingredient->getBox($this->id);
+    }
 }
