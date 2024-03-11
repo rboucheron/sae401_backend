@@ -25,7 +25,7 @@ switch ($table) {
     case 'drink' :
         include('./src/controller/DrinkController.php');
         $controller = new DrinkController;
-        $controller->delete($_GET['id']);
+        Post($controller, $datas);
         break;
         
     default:

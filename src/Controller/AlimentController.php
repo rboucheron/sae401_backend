@@ -36,9 +36,3 @@ class AlimentController{
     }
 }
 
-
-
-
-
-
-?>

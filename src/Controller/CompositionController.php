@@ -71,9 +71,3 @@ class CompositionController{
         return  $connection; 
     }
 }
-
-
-
-
-
-
