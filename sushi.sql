@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Hôte : localhost:8889
--- Généré le : lun. 11 mars 2024 à 21:16
--- Version du serveur : 5.7.39
--- Version de PHP : 8.2.0
+-- Hôte : 127.0.0.1
+-- Généré le : mar. 12 mars 2024 à 14:37
+-- Version du serveur : 10.4.32-MariaDB
+-- Version de PHP : 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -31,7 +31,7 @@ CREATE TABLE `aliment` (
   `id` int(11) NOT NULL,
   `name` varchar(35) NOT NULL,
   `image` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Déchargement des données de la table `aliment`
@@ -69,8 +69,8 @@ INSERT INTO `aliment` (`id`, `name`, `image`) VALUES
 
 CREATE TABLE `box` (
   `id` int(11) NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `image` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `image` longtext NOT NULL,
   `price` double NOT NULL,
   `pieces` decimal(4,0) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -80,19 +80,19 @@ CREATE TABLE `box` (
 --
 
 INSERT INTO `box` (`id`, `name`, `image`, `price`, `pieces`) VALUES
-(1, 'Tasty Blend', 'http://localhost:3000/src/assets/box_img/2.jpg', 12.5, '12'),
-(2, 'Amateur Mix', 'http://localhost:3000/src/assets/box_img/17.jpg', 15.9, '18'),
-(3, 'Saumon Original', 'http://localhost:3000/src/assets/box_img/19.jpg', 12.5, '11'),
-(4, 'Salmon Lovers', 'http://localhost:3000/src/assets/box_img/5.jpg', 15.9, '18'),
-(5, 'Salmon Classic', 'http://localhost:3000/src/assets/box_img/4.jpg', 15.9, '10'),
-(6, 'Master Mix', 'http://localhost:3000/src/assets/box_img/20.jpg', 15.9, '12'),
-(7, 'Sunrise', 'http://localhost:3000/src/assets/box_img/12.jpg', 15.9, '18'),
-(8, 'Sando Box Chicken Katsu', 'http://localhost:3000/src/assets/box_img/13.jpg', 15.9, '13'),
-(9, 'Sando Box Salmon Aburi', 'http://localhost:3000/src/assets/box_img/2.jpg', 15.9, '13'),
-(10, 'Super Salmon', 'http://localhost:4000/src/assets/box_img/2.jpg', 19.9, '24'),
-(11, 'California Dream', 'http://localhost:4000/src/assets/box_img/2.jpg', 19.9, '24'),
-(12, 'Gourmet Mix', 'IMAGE', 24.5, '22'),
-(13, 'Fresh Mix', 'image', 24.5, '22');
+(1, 'Tasty Blend', 'http://localhost:3000/src/assets/box_img/2.jpg', 12.5, 12),
+(2, 'Amateur Mix', 'http://localhost:3000/src/assets/box_img/17.jpg', 15.9, 18),
+(3, 'Saumon Original', 'http://localhost:3000/src/assets/box_img/19.jpg', 12.5, 11),
+(4, 'Salmon Lovers', 'http://localhost:3000/src/assets/box_img/5.jpg', 15.9, 18),
+(5, 'Salmon Classic', 'http://localhost:3000/src/assets/box_img/4.jpg', 15.9, 10),
+(6, 'Master Mix', 'http://localhost:3000/src/assets/box_img/20.jpg', 15.9, 12),
+(7, 'Sunrise', 'http://localhost:3000/src/assets/box_img/12.jpg', 15.9, 18),
+(8, 'Sando Box Chicken Katsu', 'http://localhost:3000/src/assets/box_img/13.jpg', 15.9, 13),
+(9, 'Sando Box Salmon Aburi', 'http://localhost:3000/src/assets/box_img/2.jpg', 15.9, 13),
+(10, 'Super Salmon', 'http://localhost:4000/src/assets/box_img/2.jpg', 19.9, 24),
+(11, 'California Dream', 'http://localhost:4000/src/assets/box_img/2.jpg', 19.9, 24),
+(12, 'Gourmet Mix', 'IMAGE', 24.5, 22),
+(13, 'Fresh Mix', 'image', 24.5, 22);
 
 -- --------------------------------------------------------
 
@@ -105,7 +105,7 @@ CREATE TABLE `composition` (
   `quantity` int(11) NOT NULL,
   `id_box` int(11) DEFAULT NULL,
   `id_aliment` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Déchargement des données de la table `composition`
@@ -173,22 +173,22 @@ INSERT INTO `composition` (`id`, `quantity`, `id_box`, `id_aliment`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `Drink`
+-- Structure de la table `drink`
 --
 
-CREATE TABLE `Drink` (
+CREATE TABLE `drink` (
   `id` int(11) NOT NULL,
   `name` varchar(50) NOT NULL,
   `image` text NOT NULL,
   `price` int(11) NOT NULL,
   `savor` varchar(25) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Déchargement des données de la table `Drink`
+-- Déchargement des données de la table `drink`
 --
 
-INSERT INTO `Drink` (`id`, `name`, `image`, `price`, `savor`) VALUES
+INSERT INTO `drink` (`id`, `name`, `image`, `price`, `savor`) VALUES
 (2, 'Sencha Tea', 'http://localhost:3000/src/assets/drink_img/senchatea.png', 3, 'Thé vert'),
 (3, 'Ramune', 'http://localhost:3000/src/assets/drink_img/Ramune.png', 2, 'Fruité'),
 (4, 'Sakura Tea', 'http://localhost:3000/src/assets/drink_img/SakuraTea.png', 4, 'Fleur de cerisier'),
@@ -197,18 +197,7 @@ INSERT INTO `Drink` (`id`, `name`, `image`, `price`, `savor`) VALUES
 (7, 'Yuzu Soda', 'http://localhost:3000/src/assets/drink_img/Yuzu Soda.png', 3, 'Yuzu'),
 (8, 'Mugi-cha', 'http://localhost:3000/src/assets/drink_img/Mugi-cha.png', 2, 'Thé d\'orge'),
 (10, 'Amazake', 'http://localhost:3000/src/assets/drink_img/Amazake.png', 4, 'Riz doux fermenté'),
-(11, 'Shochu', 'http://localhost:3000/src/assets/drink_img/Shochu.png', 6, 'Spiritueux japonais'),
-(12, 'Ramune Soda', 'http://localhost:3000/src/assets/drink_img/RamuneSoda.png', 2, 'Citron'),
-(13, 'Melon Soda', 'http://localhost:3000/src/assets/drink_img/Melon Soda Sparkling.png', 3, 'Melon'),
-(14, 'Calpico Soda', 'http://localhost:3000/src/assets/drink_img/Calpico Soda.png', 4, 'Lait acidulé'),
-(15, 'Cider', 'http://localhost:3000/src/assets/drink_img/Cider.png', 2, 'Pomme'),
-(16, 'Cream Soda', 'http://localhost:3000/src/assets/drink_img/Cream Soda.png', 3, 'Vanille'),
-(17, 'Peach Soda', 'http://localhost:3000/src/assets/drink_img/Peach Soda.png', 3, 'Pêche'),
-(18, 'Lychee Soda', 'http://localhost:3000/src/assets/drink_img/Lychee Soda.png', 3, 'Litchi'),
-(19, 'Mitsuya Cider', 'http://localhost:3000/src/assets/drink_img/Mitsuya Cider.png', 2, 'Citron'),
-(20, 'Fanta Grape', 'http://localhost:3000/src/assets/drink_img/Fanta Grape.png', 3, 'Raisin'),
-(21, 'Coca-Cola Clear', 'http://localhost:3000/src/assets/drink_img/Coca-Cola Clear.jpeg', 2, 'Cola transparent'),
-(22, 'Aloe Vera Drink', 'http://localhost:3000/src/assets/drink_img/Aloe Vera Drink.png', 4, 'Aloe vera');
+(11, 'Shochu', 'http://localhost:3000/src/assets/drink_img/Shochu.png', 6, 'Spiritueux japonais');
 
 -- --------------------------------------------------------
 
@@ -220,7 +209,7 @@ CREATE TABLE `ingredient` (
   `id` int(11) NOT NULL,
   `id_box` int(11) DEFAULT NULL,
   `id_savor` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `ingredient`
@@ -286,7 +275,7 @@ CREATE TABLE `savor` (
   `id` int(250) NOT NULL,
   `name` varchar(250) NOT NULL,
   `image` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `savor`
@@ -294,13 +283,13 @@ CREATE TABLE `savor` (
 
 INSERT INTO `savor` (`id`, `name`, `image`) VALUES
 (1, 'riz', 'http://localhost:3000/src/assets/savor_img/rice.jpg'),
-(2, 'avocat', 'http://localhost:3000/src/assets/savor_img/avocat.jpg'),
+(2, 'Avocat', 'http://localhost:3000/src/assets/savor_img/avocat.jpg'),
 (3, 'Saumon', 'http://localhost:3000/src/assets/savor_img/salmon.jpg'),
 (4, 'Fromage', 'http://localhost:3000/src/assets/savor_img/cheese.jpeg'),
 (5, 'Thon', 'http://localhost:3000/src/assets/savor_img/tuna.jpg'),
 (6, 'Viande', 'http://localhost:3000/src/assets/savor_img/meat.jpeg'),
 (7, 'Pimenté', 'http://localhost:3000/src/assets/savor_img/spicy.jpeg'),
-(8, 'Crevette', 'http://localhost:3000/src/assets/savor_img/shrimp.jpeg'),
+(8, 'Crevette', 'http://localhost:3000/src/assets/savor_img/shrimp.jpg'),
 (9, 'Coriandre', 'http://localhost:3000/src/assets/savor_img/coriandre.jpg');
 
 --
@@ -326,12 +315,6 @@ ALTER TABLE `composition`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_box_id` (`id_box`),
   ADD KEY `fk_id_aliment` (`id_aliment`);
-
---
--- Index pour la table `Drink`
---
-ALTER TABLE `Drink`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `ingredient`
@@ -361,19 +344,13 @@ ALTER TABLE `aliment`
 -- AUTO_INCREMENT pour la table `box`
 --
 ALTER TABLE `box`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1093;
 
 --
 -- AUTO_INCREMENT pour la table `composition`
 --
 ALTER TABLE `composition`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
-
---
--- AUTO_INCREMENT pour la table `Drink`
---
-ALTER TABLE `Drink`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT pour la table `savor`
