@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Hôte : 127.0.0.1
--- Généré le : mar. 12 mars 2024 à 14:37
--- Version du serveur : 10.4.32-MariaDB
--- Version de PHP : 8.2.12
+-- Host: 127.0.0.1
+-- Generation Time: Mar 12, 2024 at 08:09 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `sushi`
+-- Database: `sushi`
 --
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `aliment`
+-- Table structure for table `aliment`
 --
 
 CREATE TABLE `aliment` (
@@ -34,7 +34,7 @@ CREATE TABLE `aliment` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Déchargement des données de la table `aliment`
+-- Dumping data for table `aliment`
 --
 
 INSERT INTO `aliment` (`id`, `name`, `image`) VALUES
@@ -64,7 +64,7 @@ INSERT INTO `aliment` (`id`, `name`, `image`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `box`
+-- Table structure for table `box`
 --
 
 CREATE TABLE `box` (
@@ -76,28 +76,28 @@ CREATE TABLE `box` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Déchargement des données de la table `box`
+-- Dumping data for table `box`
 --
 
 INSERT INTO `box` (`id`, `name`, `image`, `price`, `pieces`) VALUES
 (1, 'Tasty Blend', 'http://localhost:3000/src/assets/box_img/2.jpg', 12.5, 12),
 (2, 'Amateur Mix', 'http://localhost:3000/src/assets/box_img/17.jpg', 15.9, 18),
-(3, 'Saumon Original', 'http://localhost:3000/src/assets/box_img/19.jpg', 12.5, 11),
+(3, 'Saumon Original', 'http://localhost:3000/src/assets/box_img/25.jpg', 12.5, 11),
 (4, 'Salmon Lovers', 'http://localhost:3000/src/assets/box_img/5.jpg', 15.9, 18),
 (5, 'Salmon Classic', 'http://localhost:3000/src/assets/box_img/4.jpg', 15.9, 10),
 (6, 'Master Mix', 'http://localhost:3000/src/assets/box_img/20.jpg', 15.9, 12),
 (7, 'Sunrise', 'http://localhost:3000/src/assets/box_img/12.jpg', 15.9, 18),
 (8, 'Sando Box Chicken Katsu', 'http://localhost:3000/src/assets/box_img/13.jpg', 15.9, 13),
-(9, 'Sando Box Salmon Aburi', 'http://localhost:3000/src/assets/box_img/2.jpg', 15.9, 13),
-(10, 'Super Salmon', 'http://localhost:4000/src/assets/box_img/2.jpg', 19.9, 24),
-(11, 'California Dream', 'http://localhost:4000/src/assets/box_img/2.jpg', 19.9, 24),
-(12, 'Gourmet Mix', 'IMAGE', 24.5, 22),
-(13, 'Fresh Mix', 'image', 24.5, 22);
+(9, 'Sando Box Salmon Aburi', 'http://localhost:3000/src/assets/box_img/19.jpg', 15.9, 13),
+(10, 'Super Salmon', 'http://localhost:3000/src/assets/box_img/21.jpg', 19.9, 24),
+(11, 'California Dream', 'http://localhost:3000/src/assets/box_img/22.jpg', 19.9, 24),
+(12, 'Gourmet Mix', 'http://localhost:3000/src/assets/box_img/23.jpg', 24.5, 22),
+(13, 'Fresh Mix', 'http://localhost:3000/src/assets/box_img/24.jpg', 24.5, 22);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `composition`
+-- Table structure for table `composition`
 --
 
 CREATE TABLE `composition` (
@@ -108,7 +108,7 @@ CREATE TABLE `composition` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Déchargement des données de la table `composition`
+-- Dumping data for table `composition`
 --
 
 INSERT INTO `composition` (`id`, `quantity`, `id_box`, `id_aliment`) VALUES
@@ -173,7 +173,7 @@ INSERT INTO `composition` (`id`, `quantity`, `id_box`, `id_aliment`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `drink`
+-- Table structure for table `drink`
 --
 
 CREATE TABLE `drink` (
@@ -185,7 +185,7 @@ CREATE TABLE `drink` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Déchargement des données de la table `drink`
+-- Dumping data for table `drink`
 --
 
 INSERT INTO `drink` (`id`, `name`, `image`, `price`, `savor`) VALUES
@@ -202,7 +202,7 @@ INSERT INTO `drink` (`id`, `name`, `image`, `price`, `savor`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `ingredient`
+-- Table structure for table `ingredient`
 --
 
 CREATE TABLE `ingredient` (
@@ -212,7 +212,7 @@ CREATE TABLE `ingredient` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `ingredient`
+-- Dumping data for table `ingredient`
 --
 
 INSERT INTO `ingredient` (`id`, `id_box`, `id_savor`) VALUES
@@ -268,7 +268,7 @@ INSERT INTO `ingredient` (`id`, `id_box`, `id_savor`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `savor`
+-- Table structure for table `savor`
 --
 
 CREATE TABLE `savor` (
@@ -278,7 +278,7 @@ CREATE TABLE `savor` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Déchargement des données de la table `savor`
+-- Dumping data for table `savor`
 --
 
 INSERT INTO `savor` (`id`, `name`, `image`) VALUES
@@ -293,23 +293,23 @@ INSERT INTO `savor` (`id`, `name`, `image`) VALUES
 (9, 'Coriandre', 'http://localhost:3000/src/assets/savor_img/coriandre.jpg');
 
 --
--- Index pour les tables déchargées
+-- Indexes for dumped tables
 --
 
 --
--- Index pour la table `aliment`
+-- Indexes for table `aliment`
 --
 ALTER TABLE `aliment`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `box`
+-- Indexes for table `box`
 --
 ALTER TABLE `box`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `composition`
+-- Indexes for table `composition`
 --
 ALTER TABLE `composition`
   ADD PRIMARY KEY (`id`),
@@ -317,7 +317,7 @@ ALTER TABLE `composition`
   ADD KEY `fk_id_aliment` (`id_aliment`);
 
 --
--- Index pour la table `ingredient`
+-- Indexes for table `ingredient`
 --
 ALTER TABLE `ingredient`
   ADD PRIMARY KEY (`id`),
@@ -325,52 +325,52 @@ ALTER TABLE `ingredient`
   ADD KEY `fk_id_savor` (`id_savor`);
 
 --
--- Index pour la table `savor`
+-- Indexes for table `savor`
 --
 ALTER TABLE `savor`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT pour les tables déchargées
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT pour la table `aliment`
+-- AUTO_INCREMENT for table `aliment`
 --
 ALTER TABLE `aliment`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
--- AUTO_INCREMENT pour la table `box`
+-- AUTO_INCREMENT for table `box`
 --
 ALTER TABLE `box`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1093;
 
 --
--- AUTO_INCREMENT pour la table `composition`
+-- AUTO_INCREMENT for table `composition`
 --
 ALTER TABLE `composition`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
--- AUTO_INCREMENT pour la table `savor`
+-- AUTO_INCREMENT for table `savor`
 --
 ALTER TABLE `savor`
   MODIFY `id` int(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- Contraintes pour les tables déchargées
+-- Constraints for dumped tables
 --
 
 --
--- Contraintes pour la table `composition`
+-- Constraints for table `composition`
 --
 ALTER TABLE `composition`
   ADD CONSTRAINT `fk_box_id` FOREIGN KEY (`id_box`) REFERENCES `box` (`id`),
   ADD CONSTRAINT `fk_id_aliment` FOREIGN KEY (`id_aliment`) REFERENCES `aliment` (`id`);
 
 --
--- Contraintes pour la table `ingredient`
+-- Constraints for table `ingredient`
 --
 ALTER TABLE `ingredient`
   ADD CONSTRAINT `fk_id_box` FOREIGN KEY (`id_box`) REFERENCES `box` (`id`),
