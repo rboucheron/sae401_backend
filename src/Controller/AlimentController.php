@@ -1,38 +1,38 @@
 <?php
 include('./src/entity/aliment.php');
 
-class AlimentController{
-
-
+class AlimentController
+{
     public function getAll()
     {
-        $aliment = new Aliment;
-        return json_encode($aliment->findall());
+        $Aliment = new Aliment;
+        return json_encode($Aliment->findaliments());
     }
-
     public function get($id)
     {
-        $aliment = new Aliment;
-        $aliment->setId($id);
-        return json_encode($aliment->findaliment());
+        $Aliment = new Aliment;
+        $Aliment->setId($id);
+        return json_encode($Aliment->findaliment());
     }
-
     public function delete($id)
     {
-        $aliment = new Aliment;
-        $aliment->delete($id);
+        $Aliment = new Aliment;
+        $Aliment->setId($id);
+        $Aliment->remove();
     }
-
     public function post($data)
     {
-        $aliment = new Aliment;
-        return $aliment->insert($data);
+        $Aliment = new Aliment;
+        $Aliment->setName($data['name']);
+        $Aliment->setImage($data['image']);
+        return $Aliment->post();
     }
-
     public function update($id, $data)
     {
-        $aliment = new Aliment;
-        return $aliment->put($id, $data);
+        $Aliment = new Aliment;
+        $Aliment->setId($id);
+        $Aliment->setName($data['name']);
+        $Aliment->setImage($data['image']);
+        return $Aliment->update();
     }
 }
-

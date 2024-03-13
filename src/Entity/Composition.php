@@ -47,6 +47,41 @@ class Composition extends Model
     {
         return $this->find('id', $this->id);
     }
+    public function findCompositions()
+    {
+        return $this->findall();
+    }
+    public function update()
+    {
+        $data = array(
+            'id_box' => $this->getId_box(),
+            'id_aliment' => $this->getId_aliment(),
+            'quantity' => $this->getQuantity(),
+        );
+        $this->put($this->getId(), $data);
+    }
+    public function post()
+    {
+        $data = array(
+            'id_box' => $this->getId_box(),
+            'id_aliment' => $this->getId_aliment(),
+            'quantity' => $this->getQuantity(),
+        );
+        $this->insert($data);
+    }
+    public function remove()
+    {
+        $this->delete($this->getId());
+    }
+
+
+
+
+
+
+
+
+
     public function findBox()
     {
         return $this->find('id_box', $this->id_box);
@@ -55,5 +90,4 @@ class Composition extends Model
     {
         return $this->find('id_aliment', $this->id_aliment);
     }
-  
 }

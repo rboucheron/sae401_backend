@@ -4,39 +4,38 @@ include('./src/Entity/Ingredient.php');
 class IngredientController
 {
 
-
     public function getAll()
     {
-        $ingredient = new Ingredient;
-        return json_encode($ingredient->findall());
+        $Ingredient = new Ingredient;
+        return json_encode($Ingredient->findIngredients());
     }
-
     public function get($id)
     {
-        $ingredient = new Ingredient;
-        $ingredient->setId($id);
-        return json_encode($ingredient->findIngredient());
+        $Ingredient = new Ingredient;
+        $Ingredient->setId($id);
+        return json_encode($Ingredient->findIngredient());
     }
-
     public function delete($id)
     {
-        $ingredient = new Ingredient;
-        $ingredient->delete($id);
+        $Ingredient = new Ingredient;
+        $Ingredient->setId($id);
+        $Ingredient->remove();
     }
-
     public function post($data)
     {
-        $ingredient = new Ingredient;
-        return $ingredient->insert($data);
+        $Ingredient = new Ingredient;
+        $Ingredient->setId_box($data['Id_box']);
+        $Ingredient->setId_savor($data['Id_savor']);
+        return $Ingredient->post();
     }
-
     public function update($id, $data)
     {
-        $ingredient = new Ingredient;
-        return $ingredient->put($id, $data);
+        $Ingredient = new Ingredient;
+        $Ingredient->setId($id);
+        $Ingredient->setId_box($data['Id_box']);
+        $Ingredient->setId_savor($data['Id_savor']);
+        return $Ingredient->update();
     }
-
-
     public function getBox($id)
     {
         $ingredient = new Ingredient;

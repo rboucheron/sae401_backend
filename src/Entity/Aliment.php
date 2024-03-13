@@ -1,7 +1,5 @@
 <?php
 
-
-
 class Aliment extends Model{
     private $id;
     private $name;
@@ -35,5 +33,29 @@ class Aliment extends Model{
         return $this->find('id', $this->id);
     }
 
+    public function findaliments()
+    {
+        return $this->findall();
+    }
+    public function update()
+    {
+        $data = array(
+            'name' => $this->getName(),
+            'image' => $this->getImage()
 
+        );
+        $this->put($this->getId(), $data);
+    }
+    public function post()
+    {
+        $data = array(
+            'name' => $this->getName(),
+            'image' => $this->getImage(),
+        );
+        $this->insert($data);
+    }
+    public function remove()
+    {
+        $this->delete($this->getId());
+    }
 }

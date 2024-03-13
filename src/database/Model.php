@@ -1,9 +1,9 @@
 <?php
 include('./src/database/Database.php');
 
-class Model extends Database
+abstract class Model extends Database
 {
-    public function __construct()
+    protected function __construct()
     {
         parent::__construct();
     }
@@ -12,29 +12,29 @@ class Model extends Database
         $this->db = Database::getInstance();
         return $this->db->query($sql);
     }
-    public function insert($data)
+    protected function insert($data)
     {
         $columns = implode(", ", array_keys($data));
         $values = "'" . implode("','", array_values($data)) . "'";
         $query = "INSERT INTO {$this->table} ({$columns}) VALUES ({$values})";
         $this->requete($query);
     }
-    public function findall()
+    protected function findall()
     {
         $query = $this->requete('SELECT * FROM ' . $this->table);
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }
-    public function find($colmn, $row)
+    protected function find($colmn, $row)
     {
         $query = $this->requete('SELECT * FROM ' . $this->table . ' WHERE ' . $colmn . ' = \'' . $row . '\'');
         return $query->fetchAll(PDO::FETCH_ASSOC);
     }
-    public function delete($id)
+    protected function delete($id)
     {
         $query =  'DELETE FROM ' . $this->table . ' WHERE id = \'' . $id . '\'';
         $this->requete($query);
     }
-    public function put($id, $data)
+    protected function put($id, $data)
     {
         $sets = [];
         foreach ($data as $key => $value) {

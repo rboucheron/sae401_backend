@@ -38,6 +38,30 @@ class Ingredient extends Model
     {
         return $this->find('id', $this->id);
     }
+    public function findIngredients()
+    {
+        return $this->findall();
+    }
+    public function update()
+    {
+        $data = array(
+            'id_box' => $this->getId_box(),
+            'id_savor' => $this->getId_savor(),
+        );
+        $this->put($this->getId(), $data);
+    }
+    public function post()
+    {
+        $data = array(
+            'id_box' => $this->getId_box(),
+            'id_savor' => $this->getId_savor(),
+        );
+        $this->insert($data);
+    }
+    public function remove()
+    {
+        $this->delete($this->getId());
+    }
     public function findBox()
     {
         return $this->find('id_box', $this->id_box);
