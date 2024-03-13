@@ -5,7 +5,7 @@ class SavorController
     public function getAll()
     {
         $savor = new savor;
-        return json_encode($savor->findall());
+        return json_encode( $savor->findsavors());
     }
     public function get($id)
     {
@@ -16,16 +16,28 @@ class SavorController
     public function delete($id)
     {
         $savor = new savor;
-        $savor->delete($id);
+        $savor->setId($id);
+        $savor->remove();
     }
     public function post($data)
     {
-        $savor = new savor;
-        return $savor->insert($data);
+    $savor = new savor;
+    $savor->setName($data['name']);
+    $savor->setImage($data['image']);
+    return $savor->post();
     }
     public function update($id, $data)
     {
         $savor = new savor;
-        return $savor->put($id, $data);
+        $savor->setId($id);
+        $savor->setName($data['name']);
+        $savor->setImage($data['image']);
+        return $savor->update();
     }
+   
 }
+
+
+
+
+
