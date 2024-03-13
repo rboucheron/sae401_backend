@@ -5,7 +5,7 @@ class BoxController
     public function getAll()
     {
         $box = new box;
-        return json_encode($box->findall());
+        return json_encode( $box->findboxs());
     }
     public function get($id)
     {
@@ -16,16 +16,26 @@ class BoxController
     public function delete($id)
     {
         $box = new box;
-        $box->delete($id);
+        $box->setId($id);
+        $box->remove();
     }
     public function post($data)
     {
         $box = new box;
-        return $box->insert($data);
+        $box->setName($data['name']);
+        $box->setImage($data['image']);
+        $box->setPrice($data['price']);
+        $box->setPieces($data['pieces']);
+        return $box->post();
     }
     public function update($id, $data)
     {
         $box = new box;
-        return $box->put($id, $data);
+        $box->setId($id);
+        $box->setName($data['name']);
+        $box->setImage($data['image']);
+        $box->setPrice($data['price']);
+        $box->setPieces($data['pieces']);
+        return $box->update();
     }
 }

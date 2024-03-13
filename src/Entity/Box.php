@@ -53,6 +53,34 @@ class box extends Model
     {
         $this->pieces = $pieces;
     }
+    public function post()
+    {
+        $data = array(
+            'name' => $this->getName(),
+            'image' => $this->getImage(),
+            'price' => $this->getPrice(),
+            'pieces' => $this->getPieces()
+        );
+        $this->insert($data);
+    }
+    public function remove()
+    {
+        $this->delete($this->getId());
+    }
+    public function findboxs()
+    {
+        return $this->findall();
+    }
+    public function update()
+    {
+        $data = array(
+            'name' => $this->getName(),
+            'image' => $this->getImage(),
+            'price' => $this->getPrice(),
+            'pieces' => $this->getPieces()
+        );
+        $this->put($this->getId(), $data);
+    }
     public function findbox()
     {
         $box = $this->find('id', $this->id);
@@ -67,7 +95,6 @@ class box extends Model
         $composition = new CompositionController;
         return $composition->getBox($this->id);
     }
-
     private function findingredient()
     {
         include('./src/Controller/IngredientController.php');
