@@ -5,9 +5,10 @@ $uri = $_SERVER['REQUEST_URI'];
 $router = new AltoRouter();
 
 $router->map('GET', '/api/[*:table]', 'get');
-/*$router->map('POST', '/api/[*:table]', 'post');
+$router->map('POST', '/api/[*:table]', 'post');
 $router->map('PUT', '/api/[*:table]', 'put');
-$router->map('Delete', '/api/[*:table]', 'delete');*/
+$router->map('Delete', '/api/[*:table]', 'delete');
+
 $match = $router->match();
 
 if (is_array($match)) {
